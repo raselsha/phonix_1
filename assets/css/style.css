@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     width:95px;
     height:60px;
-    background: #000;
+    background: transparent;
     margin:auto;
     text-transform: uppercase;
     font-weight: bold;
