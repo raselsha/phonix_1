@@ -26,7 +26,8 @@ function reset(){
 	  	inactiveBtn(btn[i]);  // play button deactive
 
 	  	addNoSoundBtn(charB[i]); // add no sound btn to left table
-	  	activeChar(charB[i]);  // active left table letters
+	  	activeChar(charB[i]); // add no sound btn to left table
+	  	
 	}
 }
 
@@ -43,11 +44,10 @@ function playNow(){
 	for (var j = 0; j < 20; j++) {
 		var charElemB  = document.getElementById(charB[j]);
 		if(charElemA.innerHTML==charElemB.innerHTML){
-			removeNoSoundBtn(charElemB.id);
-			var element = document.getElementById(charElemB.id);
+			removeNoSoundBtn(charB[j]);
 			var att = document.createAttribute("onclick");
 			att.value = "moveNow("+charB[j]+","+charA[i]+")";
-			element.setAttributeNode(att);
+			charElemB.setAttributeNode(att);
 		}
 	}
 }
@@ -82,7 +82,7 @@ function next(){
 		endLesson();
 	}
 	else{
-		activeBtn(btn[i]); // make first button green and active 
+		activeBtn(btn[i]); // make next button green and active 
 		addPlayNowBtn(btn[i]);
 	}
 }
@@ -137,18 +137,6 @@ function playNoSound(){
 	player.play();	
 }
 
-
-function wordActive(id){
-	var h1 = document.getElementById(id);
-	h1.classList.add('text-green');
-}
-
-function wordInactive(id){
-	var h1 = document.getElementById(id);
-	h1.classList.remove('text-green');
-	h1.classList.add('text-white');
-}
-
 function show(id){
 	var item = document.getElementById(id);
 	item.classList.remove('invisible');
@@ -162,14 +150,11 @@ function hide(id){
 
 function activeChar(id){
 	var item = document.getElementById(id);
-	item.style.filter= 'grayscale(0%)';
-	item.style.opacity= '1';
 	item.classList.add('pointer');
 }
+
 function inactiveChar(id){
 	var item = document.getElementById(id);
-	item.style.filter= 'grayscale(100%)';
-	item.style.opacity= '0.5';
 	item.classList.remove('pointer');
 }
 
@@ -180,6 +165,7 @@ function activeBtn(id){
 	item.style.opacity= '1';
 	item.classList.add('pointer');
 }
+
 function inactiveBtn(id){
 	var item = document.getElementById(id);
 	item.src = 'assets/images/play-white.svg';
@@ -187,6 +173,7 @@ function inactiveBtn(id){
 	item.style.opacity= '0.5';
 	item.classList.remove('pointer');
 }
+
 function makeNormalBtn(id){
 	var item = document.getElementById(id);
 	item.src = 'assets/images/play-white.svg';

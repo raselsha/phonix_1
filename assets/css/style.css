@@ -54,8 +54,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .subtitle{
     font-family: 'Noto Serif', serif;
-    margin: 10px 0;
-    line-height: 27px;
+    margin:5px 0;
+    line-height: 30px;
 }
 
 /*****************content*****************/
